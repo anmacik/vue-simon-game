@@ -1,56 +1,88 @@
 ---
 ---
-  
-$btncolor: #ff3c41
-$startcolor: lightgreen
-$stopcolor: #ff3c41
+  body
+  background-color: #718087
 
-.position
-  font-size: 3rem
-  color: $btncolor
-  font-weight: 200
-  &.is-success
-    color: lime
+.game
+  display: flex
+  flex-direction: column
+  align-items: center
 
-.bigbutton
-  padding: 40px
-  height: 60px
-  font-size: 2rem
-  margin-right: 30px
-  border: 0
-  &:nth-of-type(4n)
-    margin-right: 0px
+  .game__content
+    background-color: #3f3838
+    width: 300px
+    height: 300px
+    display: grid
+    grid-template-columns: 1fr 1fr
+    grid-template-rows: 1fr 1fr
 
+    .game__item
+      cursor: pointer
+      border: 3px solid #3f3838
 
-@for $i from 0 through 3
-  .bigbutton:nth-of-type(#{$i+1})
-    background-color: adjust-hue($btncolor, 45deg * $i)
-    &.on
-      background-color: lighten(adjust-hue($btncolor, 60deg * $i), 25%)
-      box-shadow: 0 0 13px 1px lighten(adjust-hue($btncolor, 60deg * $i), 15%)
-      transform: translateX(3px) translateY(3px)
+      &:hover
+        opacity: 0.6
 
-.start
-  border: 0
-  border-radius: 50%
-  font-weight: bold
-  padding: 0px
-  width: 200px
-  font-size: 3rem
-  height: 200px
-  background-color: $startcolor
-  box-shadow: 3px 3px 0 1px darken($startcolor, 40%)
-  &.run
-    background-color: lighten($stopcolor, 25%)
-    box-shadow: 0 0 13px 1px lighten($stopcolor, 15%)
+    .game__item_1
+      background-color: #2525aa
 
-.strict
-  border: 0
-  font-weight: bold
-  padding: 0px
-  width: 200px
-  background-color: $stopcolor
-  box-shadow: 3px 3px 0 1px darken($stopcolor, 40%)
-  &.on
-    background-color: lighten($startcolor, 25%)
-    box-shadow: 0 0 13px 1px lighten($startcolor, 15%)
+      &.lighted
+        background: #6f6fe0
+
+    .game__item_2
+      background-color: #aa2525
+
+      &.lighted
+        background: #e06f6f
+
+    .game__item_3
+      background-color: #aaaa25
+
+      &.lighted
+        background: #e0e06f
+
+    .game__item_4
+      background-color: #45aa25
+
+      &.lighted
+        background: #8ae06f
+
+  .game__start-btn
+    background-color: #c5bbbb
+    width: fit-content
+    padding: 15px
+    border-radius: 10px
+    margin-top: 20px
+    cursor: pointer
+    display: flex
+    flex-direction: column
+    align-items: center
+    gap: 10px
+
+    &:hover
+      background-color: #b8aeae
+
+  .game__mode
+    background-color: #394432
+    padding: 20px
+    margin-top: 20px
+    border-radius: 5px
+
+    p
+      text-align: center
+      color: #f2f2f2
+      font-size: 18px
+      margin-top: 0
+
+    button
+      cursor: pointer
+      background-color: #b1dbc4
+      font-size: 14px
+      letter-spacing: 1px
+      padding: 7px
+
+      &.active
+        background: #45aa25
+
+      + button
+        margin-left: 10px
